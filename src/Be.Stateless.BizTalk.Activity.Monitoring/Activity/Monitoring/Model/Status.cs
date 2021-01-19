@@ -17,10 +17,12 @@
 #endregion
 
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 {
 	[TypeConverter(typeof(StatusConverter))]
+	[SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Public API.")]
 	public enum Status
 	{
 		Any = 0,

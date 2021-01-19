@@ -16,12 +16,14 @@
 
 #endregion
 
+using System.Diagnostics.CodeAnalysis;
 using Be.Stateless.BizTalk.Extensions;
 
 namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 {
 	public class ProcessDescriptor
 	{
+		[SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Public API.")]
 		public string FriendlyName => Name.ToFriendlyProcessName();
 
 		public string Name { get; internal set; }

@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2012 - 2020 François Chabot
+// Copyright © 2012 - 2021 François Chabot
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -29,7 +29,9 @@ using Path = System.IO.Path;
 
 namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 {
-	[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
+	[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global", Justification = "Public EF Model API.")]
 	public class MessageBody
 	{
 		public string Body
@@ -38,12 +40,9 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 			{
 				using (var stream = new StreamReader(Stream))
 				{
-					if (HasBeenClaimed)
-					{
-						var length = stream.Read(_buffer, 0, _buffer.Length);
-						return new string(_buffer, 0, length);
-					}
-					return stream.ReadToEnd();
+					if (!HasBeenClaimed) return stream.ReadToEnd();
+					var length = stream.Read(_buffer, 0, _buffer.Length);
+					return new(_buffer, 0, length);
 				}
 			}
 		}
@@ -68,17 +67,15 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 		{
 			get
 			{
-				if (HasContent)
+				if (!HasContent) return null;
+				using (var stream = Stream)
 				{
-					using (var stream = Stream)
-					{
-						return stream.GetMimeType();
-					}
+					return stream.GetMimeType();
 				}
-				return null;
 			}
 		}
 
+		[SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Public API.")]
 		public string ReceivedFileName
 		{
 			get
@@ -90,19 +87,19 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 						: MimeType.Equals("text/html", StringComparison.OrdinalIgnoreCase)
 							? "message.html"
 							: MimeType.StartsWith("text/", StringComparison.OrdinalIgnoreCase)
-								? (Body[0] == '<' ? "message.xml" : "message.txt")
+								? Body[0] == '<' ? "message.xml" : "message.txt"
 								: "message.unknown");
 			}
 		}
 
-		public System.IO.Stream Stream => !HasContent
+		public Stream Stream => !HasContent
 			? new MemoryStream()
 			: HasBeenClaimed
 				? ClaimedStream
 				: EncodedBody.DecompressFromBase64String();
 
-		private System.IO.Stream ClaimedStream => ClaimAvailable
-			? (System.IO.Stream) File.OpenRead(Path.Combine(MonitoringConfigurationSection.Current.ClaimStoreDirectory, EncodedBody))
+		private Stream ClaimedStream => ClaimAvailable
+			? File.OpenRead(Path.Combine(MonitoringConfigurationSection.Current.ClaimStoreDirectory, EncodedBody))
 			: new StringStream($"The captured payload entry '{EncodedBody}' is not yet available in the central store.");
 
 		// buffer used to read the first preview characters of large message bodies

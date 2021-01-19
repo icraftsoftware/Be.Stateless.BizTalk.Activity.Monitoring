@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2012 - 2020 François Chabot
+// Copyright © 2012 - 2021 François Chabot
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,7 +24,10 @@ using Be.Stateless.Extensions;
 
 namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 {
-	[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
+	[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Public EF Model API.")]
 	public class MessagingStep : IActivity
 	{
 		#region IActivity Members
@@ -49,6 +52,7 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 
 		public string ErrorDescription { get; set; }
 
+		[SuppressMessage("ReSharper", "ConvertIfStatementToReturnStatement")]
 		public string FriendlyMessageType
 		{
 			get

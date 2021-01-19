@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2012 - 2020 François Chabot
+// Copyright © 2012 - 2021 François Chabot
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -29,18 +29,17 @@ using Microsoft.XLANGs.BaseTypes;
 
 namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 {
-	[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+	[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global", Justification = "Public EF Model API.")]
 	public class MessageContext
 	{
 		#region Nested Type: Property
 
-		[SuppressMessage("Design", "CA1034:Nested types should not be visible")]
-		[SuppressMessage("Naming", "CA1716:Identifiers should not match keywords")]
 		public class Property<T>
 		{
 			#region Operators
 
-			[SuppressMessage("Usage", "CA2225:Operator overloads have named alternates")]
 			public static implicit operator Property<T>(Property<object> property)
 			{
 				return property == null
@@ -66,16 +65,13 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 
 		#endregion
 
-		[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
 		public string EncodedContext { get; set; }
 
-		[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
 		public MessagingStep MessagingStep { get; set; }
 
-		[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
 		public string MessagingStepActivityID { get; set; }
 
-		// public for Be.Stateless.BizTalk.Web.Monitoring.Site
+		[SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Public for Be.Stateless.BizTalk.Activity.Monitoring.Web")]
 		public IEnumerable<Property<object>> Properties
 		{
 			get

@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2012 - 2020 François Chabot
+// Copyright © 2012 - 2021 François Chabot
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
 
 #endregion
 
-using Be.Stateless.BizTalk.Factory.Areas;
 using FluentAssertions;
 using Xunit;
 
@@ -38,11 +37,11 @@ namespace Be.Stateless.BizTalk.Extensions
 		}
 
 		public static readonly object[] ActualProcessNames = {
-			new object[] { Default.Processes.Failed, "Factory/Failed" },
-			new object[] { Default.Processes.Unidentified, "Factory/Unidentified" },
-			//new object[] { Batch.Processes.Aggregate, "Factory/Batch/Aggregate" },
-			//new object[] { Batch.Processes.Release, "Factory/Batch/Release" },
-			new object[] { Claim.Processes.Check, "Factory/Claim/Check" },
+			new object[] { "Be.Stateless.BizTalk.Factory.Areas.Default.Failed", "Factory/Failed" },
+			new object[] { "Be.Stateless.BizTalk.Factory.Areas.Default.Unidentified", "Factory/Unidentified" },
+			new object[] { "Be.Stateless.BizTalk.Factory.Areas.Batch.Aggregate", "Factory/Batch/Aggregate" },
+			new object[] { "Be.Stateless.BizTalk.Factory.Areas.Batch.Release", "Factory/Batch/Release" },
+			new object[] { "Be.Stateless.BizTalk.Factory.Areas.Claim.Check", "Factory/Claim/Check" },
 			new object[] { "Be.Stateless.Accounting.Orchestrations.Invoicing.UpdateMasterData", "Accounting/Invoicing/UpdateMasterData" },
 			new object[] { "Be.Stateless.Accounting.Orchestrations.UpdateMasterData", "Accounting/UpdateMasterData" }
 		};

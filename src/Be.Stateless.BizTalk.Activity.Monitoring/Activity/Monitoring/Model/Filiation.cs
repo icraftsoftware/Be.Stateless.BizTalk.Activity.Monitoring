@@ -16,8 +16,12 @@
 
 #endregion
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 {
+	[SuppressMessage("ReSharper", "UnusedType.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Public EF Model API.")]
 	public enum Filiation
 	{
 		Any = 0,

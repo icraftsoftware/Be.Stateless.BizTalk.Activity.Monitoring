@@ -17,9 +17,12 @@
 #endregion
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 {
+	[SuppressMessage("ReSharper", "UnusedMemberInSuper.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Public EF Model API.")]
 	public interface IActivity
 	{
 		string ActivityID { get; set; }
