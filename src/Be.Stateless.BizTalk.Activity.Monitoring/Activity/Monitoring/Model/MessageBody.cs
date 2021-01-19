@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2012 - 2020 François Chabot
+// Copyright © 2012 - 2021 François Chabot
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -92,14 +92,14 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 			}
 		}
 
-		public System.IO.Stream Stream => !HasContent
+		public Stream Stream => !HasContent
 			? new MemoryStream()
 			: HasBeenClaimed
 				? ClaimedStream
 				: EncodedBody.DecompressFromBase64String();
 
-		private System.IO.Stream ClaimedStream => ClaimAvailable
-			? (System.IO.Stream) File.OpenRead(Path.Combine(MonitoringConfigurationSection.Current.ClaimStoreDirectory, EncodedBody))
+		private Stream ClaimedStream => ClaimAvailable
+			? (Stream) File.OpenRead(Path.Combine(MonitoringConfigurationSection.Current.ClaimStoreDirectory, EncodedBody))
 			: new StringStream($"The captured payload entry '{EncodedBody}' is not yet available in the central store.");
 
 		// buffer used to read the first preview characters of large message bodies
