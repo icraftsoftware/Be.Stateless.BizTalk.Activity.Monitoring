@@ -24,7 +24,10 @@ using Be.Stateless.BizTalk.Extensions;
 
 namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 {
-	[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
+	[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Public EF Model API.")]
 	public class Process : IActivity
 	{
 		#region IActivity Members
@@ -43,6 +46,7 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 
 		#endregion
 
+		[SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Public API.")]
 		public string AggregatedStatus => $"{Status} with {FailedStepsCount} failed step{(FailedStepsCount == 1 ? string.Empty : "s")}";
 
 		public DateTime? EndTime { get; set; }
@@ -54,8 +58,12 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 
 		public string InterchangeID { get; set; }
 
+		[SuppressMessage("Design", "CA1002:Do not expose generic lists", Justification = "Public EF Model API.")]
+		[SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "Public EF Model API.")]
 		public virtual List<MessagingStep> MessagingSteps { get; set; }
 
+		[SuppressMessage("Design", "CA1002:Do not expose generic lists", Justification = "Public EF Model API.")]
+		[SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "Public EF Model API.")]
 		public virtual List<ProcessingStep> ProcessingSteps { get; set; }
 
 		public string Value1 { get; set; }

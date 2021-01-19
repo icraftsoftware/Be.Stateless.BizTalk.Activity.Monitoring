@@ -28,6 +28,8 @@ using Be.Stateless.BizTalk.Extensions;
 
 namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 {
+	[SuppressMessage("ReSharper", "UnusedType.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Public EF Model API.")]
 	public class ActivityContext : DbContext
 	{
 		static ActivityContext()
@@ -47,6 +49,7 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 		}
 
 		[SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "Done by SqlCommand.")]
+		[SuppressMessage("ReSharper", "StringLiteralTypo")]
 		private static IEnumerable<string> RegisteredProcessNames
 		{
 			get

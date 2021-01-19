@@ -29,7 +29,9 @@ using Microsoft.XLANGs.BaseTypes;
 
 namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 {
-	[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+	[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global", Justification = "Public EF Model API.")]
 	public class MessageContext
 	{
 		#region Nested Type: Property
@@ -66,16 +68,13 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 
 		#endregion
 
-		[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
 		public string EncodedContext { get; set; }
 
-		[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
 		public MessagingStep MessagingStep { get; set; }
 
-		[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
 		public string MessagingStepActivityID { get; set; }
 
-		// public for Be.Stateless.BizTalk.Web.Monitoring.Site
+		[SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Public for Be.Stateless.BizTalk.Activity.Monitoring.Web")]
 		public IEnumerable<Property<object>> Properties
 		{
 			get

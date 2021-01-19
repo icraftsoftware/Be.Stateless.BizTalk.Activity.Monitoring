@@ -24,7 +24,10 @@ using Be.Stateless.Extensions;
 
 namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 {
-	[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
+	[SuppressMessage("ReSharper", "ClassNeverInstantiated.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global", Justification = "Public EF Model API.")]
+	[SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Public EF Model API.")]
 	public class MessagingStep : IActivity
 	{
 		#region IActivity Members
@@ -49,6 +52,7 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 
 		public string ErrorDescription { get; set; }
 
+		[SuppressMessage("ReSharper", "ConvertIfStatementToReturnStatement")]
 		public string FriendlyMessageType
 		{
 			get
@@ -76,6 +80,8 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 
 		public string MessageType { get; set; }
 
+		[SuppressMessage("Design", "CA1002:Do not expose generic lists", Justification = "Public EF Model API.")]
+		[SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "Public EF Model API.")]
 		public virtual List<Process> Processes { get; set; }
 
 		public int? RetryCount { get; set; }
