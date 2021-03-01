@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2012 - 2020 François Chabot
+// Copyright © 2012 - 2021 François Chabot
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
 using System;
 using FluentAssertions;
 using Xunit;
-using static Be.Stateless.Unit.DelegateFactory;
+using static FluentAssertions.FluentActions;
 
 namespace Be.Stateless.BizTalk.Activity.Monitoring.Configuration
 {
@@ -53,7 +53,7 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Configuration
 		public void NonEmptyStringValidatorThrows()
 		{
 			var validator = ValidatorsAndConverters.NonEmptyStringValidator;
-			Action(() => validator.Validate(null!))
+			Invoking(() => validator.Validate(null!))
 				.Should().Throw<ArgumentException>()
 				.WithMessage("The string must be at least 1 characters long.");
 		}
@@ -62,7 +62,7 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Configuration
 		public void NonEmptyStringValidatorValidates()
 		{
 			var validator = ValidatorsAndConverters.NonEmptyStringValidator;
-			Action(() => validator.Validate("a")).Should().NotThrow();
+			Invoking(() => validator.Validate("a")).Should().NotThrow();
 		}
 	}
 }
