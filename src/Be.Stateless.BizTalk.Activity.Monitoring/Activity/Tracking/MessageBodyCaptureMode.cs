@@ -16,11 +16,14 @@
 
 #endregion
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace Be.Stateless.BizTalk.Activity.Tracking
 {
 	/// <summary>
 	/// Denotes whether a message's payload has been captured directly in the BAM monitoring database or not.
 	/// </summary>
+	[SuppressMessage("ReSharper", "UnusedMember.Global")]
 	public enum MessageBodyCaptureMode
 	{
 		/// <summary>

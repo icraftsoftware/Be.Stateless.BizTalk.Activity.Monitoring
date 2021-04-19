@@ -31,7 +31,7 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Configuration
 			monitoringConfiguration.Should().NotBeNull();
 			monitoringConfiguration.Should().BeOfType<MonitoringConfigurationSection>();
 			monitoringConfiguration.Should().NotBeSameAs(MonitoringConfigurationSection.Default);
-			monitoringConfiguration.ClaimStoreDirectory.Should().BeNull();
+			monitoringConfiguration!.ClaimStoreDirectory.Should().BeNull();
 		}
 
 		[Fact]

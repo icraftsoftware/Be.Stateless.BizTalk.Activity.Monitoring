@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2012 - 2020 François Chabot
+// Copyright © 2012 - 2021 François Chabot
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -50,9 +50,9 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Configuration
 		private const string DEFAULT_SECTION_NAME = "be.stateless/biztalk/monitoring";
 
 		private static MonitoringConfigurationSection _defaultSection;
-		private static readonly ConfigurationPropertyCollection _properties = new ConfigurationPropertyCollection();
+		private static readonly ConfigurationPropertyCollection _properties = new();
 
-		private static readonly ConfigurationProperty _claimStoreDirectory = new ConfigurationProperty(
+		private static readonly ConfigurationProperty _claimStoreDirectory = new(
 			CLAIM_STORE_DIRECTORY_PROPERTY_NAME,
 			typeof(string),
 			null,

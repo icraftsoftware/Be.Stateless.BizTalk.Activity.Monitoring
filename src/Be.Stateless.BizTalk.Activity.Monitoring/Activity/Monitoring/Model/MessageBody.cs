@@ -99,7 +99,7 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 				: EncodedBody.DecompressFromBase64String();
 
 		private Stream ClaimedStream => ClaimAvailable
-			? (Stream) File.OpenRead(Path.Combine(MonitoringConfigurationSection.Current.ClaimStoreDirectory, EncodedBody))
+			? File.OpenRead(Path.Combine(MonitoringConfigurationSection.Current.ClaimStoreDirectory, EncodedBody))
 			: new StringStream($"The captured payload entry '{EncodedBody}' is not yet available in the central store.");
 
 		// buffer used to read the first preview characters of large message bodies
