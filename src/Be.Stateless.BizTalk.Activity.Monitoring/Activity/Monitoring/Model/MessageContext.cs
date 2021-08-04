@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2012 - 2020 François Chabot
+// Copyright © 2012 - 2021 François Chabot
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -36,13 +36,10 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 	{
 		#region Nested Type: Property
 
-		[SuppressMessage("Design", "CA1034:Nested types should not be visible")]
-		[SuppressMessage("Naming", "CA1716:Identifiers should not match keywords")]
 		public class Property<T>
 		{
 			#region Operators
 
-			[SuppressMessage("Usage", "CA2225:Operator overloads have named alternates")]
 			public static implicit operator Property<T>(Property<object> property)
 			{
 				return property == null

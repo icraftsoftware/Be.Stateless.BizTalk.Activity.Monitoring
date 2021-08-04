@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2012 - 2020 François Chabot
+// Copyright © 2012 - 2021 François Chabot
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -58,12 +58,8 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 
 		public string InterchangeID { get; set; }
 
-		[SuppressMessage("Design", "CA1002:Do not expose generic lists", Justification = "Public EF Model API.")]
-		[SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "Public EF Model API.")]
 		public virtual List<MessagingStep> MessagingSteps { get; set; }
 
-		[SuppressMessage("Design", "CA1002:Do not expose generic lists", Justification = "Public EF Model API.")]
-		[SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "Public EF Model API.")]
 		public virtual List<ProcessingStep> ProcessingSteps { get; set; }
 
 		public string Value1 { get; set; }

@@ -42,7 +42,7 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 				{
 					if (!HasBeenClaimed) return stream.ReadToEnd();
 					var length = stream.Read(_buffer, 0, _buffer.Length);
-					return new string(_buffer, 0, length);
+					return new(_buffer, 0, length);
 				}
 			}
 		}

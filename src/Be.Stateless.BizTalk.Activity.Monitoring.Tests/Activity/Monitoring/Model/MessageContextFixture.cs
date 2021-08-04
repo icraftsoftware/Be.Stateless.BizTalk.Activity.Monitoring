@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2012 - 2020 François Chabot
+// Copyright © 2012 - 2021 François Chabot
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
 
 #endregion
 
-using System;
 using Be.Stateless.BizTalk.ContextProperties;
 using FluentAssertions;
 using Xunit;
@@ -39,7 +38,7 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Model
 		{
 			var sut = new MessageContext { EncodedContext = ENCODED_CONTEXT };
 
-			sut.GetProperty(FileProperties.FileCreationTime).Value.Should().Be(new DateTime(2018, 10, 7, 13, 38, 40));
+			sut.GetProperty(FileProperties.FileCreationTime).Value.Should().Be(new(2018, 10, 7, 13, 38, 40));
 			sut.GetProperty(FileProperties.FileCreationTime).IsPromoted.Should().BeFalse();
 		}
 

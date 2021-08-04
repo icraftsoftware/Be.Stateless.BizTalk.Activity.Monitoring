@@ -77,7 +77,7 @@ namespace Be.Stateless.BizTalk.Activity.Monitoring.Configuration
 			{
 				if (_defaultSection == null)
 				{
-					Interlocked.CompareExchange(ref _defaultSection, new MonitoringConfigurationSection(), null);
+					Interlocked.CompareExchange(ref _defaultSection, new(), null);
 				}
 				return _defaultSection;
 			}
